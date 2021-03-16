@@ -1,24 +1,16 @@
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.0;
 
-import "./ERC1155Tradable.sol";
+import "./TradeableERC721Token.sol";
+import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 /**
- * @title CreatureAccessory
- * CreatureAccessory - a contract for Creature Accessory semi-fungible tokens.
+ * @title Creature
+ * Creature - a contract for my non-fungible creatures.
  */
-contract CreatureAccessory is ERC1155Tradable {
-    constructor(address _proxyRegistryAddress)
-        public
-        ERC1155Tradable(
-            "OpenSea Creature Accessory",
-            "OSCA",
-            _proxyRegistryAddress
-        )
-    {
-        _setBaseMetadataURI("https://creatures-api.opensea.io/api/accessory/");
-    }
+contract Creature is TradeableERC721Token {
+  constructor(address _proxyRegistryAddress) TradeableERC721Token("Creature", "OSC", _proxyRegistryAddress) public {  }
 
-    function contractURI() public pure returns (string memory) {
-        return "https://creatures-api.opensea.io/contract/opensea-erc1155";
-    }
+  function baseTokenURI() public view returns (string memory) {
+    return "https://opensea-creatures-api.herokuapp.com/api/creature/";
+  }
 }
