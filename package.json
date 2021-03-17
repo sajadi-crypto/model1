@@ -1,6 +1,6 @@
 {
   "name": "opensea-creatures",
-  "version": "1.0.0",
+  "version": "3.0.3",
   "description": "OpenSea's smart contracts, including ERC721 templates, factories, and the storefront builder.",
   "main": "index.js",
   "scripts": {
